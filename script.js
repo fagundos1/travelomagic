@@ -262,33 +262,13 @@ fab.addEventListener('mouseleave', function() {
     this.style.boxShadow = 'var(--shadow)';
 });
 
-// Add typing effect to hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
 // Initialize typing effect when page loads
 document.addEventListener('DOMContentLoaded', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        const originalText = heroTitle.innerHTML;
-        heroTitle.innerHTML = '';
-        
-        // Start typing effect after a short delay
-        setTimeout(() => {
-            typeWriter(heroTitle, originalText, 50);
-        }, 500);
+        // Just make sure the title is visible without animation
+        heroTitle.style.opacity = '1';
+        heroTitle.style.transform = 'translateY(0)';
     }
 });
 
